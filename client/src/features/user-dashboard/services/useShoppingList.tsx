@@ -51,12 +51,12 @@ export const useGetMatchedVendor = (listId: string) => {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
             (data) => {
-                // const { longitude, latitude } = data.coords;
+                const { longitude, latitude } = data.coords;
 
                 // Example static coords
-                setCoord([85.1375645, 25.5940947]);
+                // setCoord([85.1375645, 25.5940947]);
 
-                // setCoord([longitude, latitude]);
+                setCoord([longitude, latitude]);
             },
             (error) => {
                 if (error.code === error.PERMISSION_DENIED) {
