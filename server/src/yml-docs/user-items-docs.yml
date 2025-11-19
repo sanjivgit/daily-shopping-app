@@ -1,0 +1,78 @@
+/items/create:
+  post:
+    tags: [Item]
+    summary: Add item to shopping list
+    security: [{ bearerAuth: [] }]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              listId: { type: string }
+              name: { type: string }
+              quantity: { type: number }
+              brandPreference: { type: string }
+    responses:
+      201:
+        description: Item added
+
+/items/get/{listId}:
+  get:
+    tags: [Item]
+    summary: Get items for a list
+    security: [{ bearerAuth: [] }]
+    parameters:
+      - name: listId
+        in: path
+        required: true
+    responses:
+      200:
+        description: Items for given list
+
+/items/update/:
+  put:
+    tags: [Item]
+    summary: Update an item in shopping list
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              itemId:
+                type: string
+                example: "64a7f0c2e4b0c2a1b2c3d4e5"
+              itemName:
+                type: string
+                example: "Milk"
+              quantity:
+                type: number
+                example: 2
+              brandPreference:
+                type: string
+                example: "Amul"
+    responses:
+      "200":
+        description: Item updated successfully
+      "404":
+        description: List or Item not found
+      "500":
+        description: Server error
+
+/items/delete/{itemId}:
+  delete:
+    tags: [Item]
+    summary: Delete item
+    security: [{ bearerAuth: [] }]
+    parameters:
+      - name: itemId
+        in: path
+        required: true
+    responses:
+      200:
+        description: Item deleted

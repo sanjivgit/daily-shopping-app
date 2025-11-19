@@ -1,0 +1,66 @@
+/lists/create:
+  post:
+    tags: [Shopping List]
+    summary: Create new shopping list
+    security: [{ bearerAuth: [] }]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              title: { type: string }
+    responses:
+      201:
+        description: List created
+
+/lists/get:
+  get:
+    tags: [Shopping List]
+    summary: Get all shopping lists of logged-in user
+    security: [{ bearerAuth: [] }]
+    responses:
+      200:
+        description: List of user shopping lists
+
+/lists/update:
+  put:
+    tags: [Shopping List]
+    summary: Update shopping list title
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              listId:
+                type: string
+                example: "64a7f0c2e4b0c2a1b2c3d4e5"
+              title:
+                type: string
+                example: "Weekly Vegetables"
+    responses:
+      "200":
+        description: List title updated successfully
+      "404":
+        description: Shopping list not found
+      "500":
+        description: Server error
+
+/lists/delete/{listId}:
+  delete:
+    tags: [Shopping List]
+    summary: Delete a shopping list
+    security: [{ bearerAuth: [] }]
+    parameters:
+      - name: listId
+        in: path
+        required: true
+        schema: { type: string }
+    responses:
+      200:
+        description: List deleted

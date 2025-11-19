@@ -1,0 +1,36 @@
+/orders/create:
+  post:
+    tags: [Orders]
+    summary: Create a new order
+    security: [{ bearerAuth: [] }]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              vendorId:
+                type: string
+              items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name: { type: string }
+                    price: { type: number }
+                    quantity: { type: number }
+              totalCost: { type: number }
+              delivery: { type: number }
+    responses:
+      201:
+        description: Order placed
+
+/orders/get:
+  get:
+    tags: [Orders]
+    summary: Get user orders
+    security: [{ bearerAuth: [] }]
+    responses:
+      200:
+        description: List of user orders

@@ -1,0 +1,23 @@
+/payment/create-order:
+  post:
+    tags:
+      - Payment
+    summary: Create a Razorpay payment order
+    description: Creates an order in Razorpay and stores payment record in DB.
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              amount:
+                type: number
+                example: 499
+    responses:
+      "201":
+        description: Payment order created successfully
+      "400":
+        description: Validation error
+      "500":
+        description: Server error

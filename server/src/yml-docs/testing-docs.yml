@@ -1,0 +1,25 @@
+/health:
+  get:
+    summary: Health Check
+    description: Check the health of the user services.
+    responses:
+      "200":
+        description: Service is healthy
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: "UP"
+      "500":
+        description: Service is not healthy
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: "DOWN"

@@ -1,0 +1,44 @@
+/auth/register:
+  post:
+    tags: [Auth]
+    summary: Register a new user
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              name: { type: string }
+              email: { type: string }
+              password: { type: string }
+              location:
+                type: object
+                properties:
+                  coordinates:
+                    type: array
+                    items:
+                      type: number
+                    minItems: 2
+                    maxItems: 2
+                    example: [85.3096, 23.3441]
+    responses:
+      201:
+        description: User registered
+
+/auth/login:
+  post:
+    tags: [Auth]
+    summary: Login and get JWT token
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              email: { type: string }
+              password: { type: string }
+    responses:
+      200:
+        description: Logged in successfully
