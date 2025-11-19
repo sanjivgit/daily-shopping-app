@@ -122,7 +122,7 @@ export default function VendorRegister() {
                         </Button>
                         <div className="text-center text-sm">
                             Already have an account?{' '}
-                            <a href="/login" className="text-blue-600 hover:underline">
+                            <a href="/vendor/login" className="text-blue-600 hover:underline">
                                 Login
                             </a>
                         </div>
