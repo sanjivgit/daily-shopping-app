@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SUBSTITUTE_KM_RANGE = exports.KM_RANGE = exports.EXPIRE_IN = exports.SECRET_KEY = exports.NODE_ENV = exports.PORT = exports.baseUrl = void 0;
+exports.baseUrl = '/api/v1/shopping-list';
+exports.PORT = process.env.PORT || 8002;
+exports.NODE_ENV = process.env.NODE_ENV || 'development';
+exports.SECRET_KEY = process.env.SECRET_KEY || 'your-default-secret-key';
+exports.EXPIRE_IN = process.env.EXPIRE_IN || "1d";
+exports.KM_RANGE = process.env.KM_RANGE || 4000;
+exports.SUBSTITUTE_KM_RANGE = process.env.SUBSTITUTE_KM_RANGE || 4000;
