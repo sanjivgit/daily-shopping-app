@@ -26,7 +26,7 @@ export const swaggerSetup = (app: Application) => {
       },
       servers: [
         {
-          url: `http://localhost:${PORT}/api/v1/shopping-list`,
+          url: `https://sanjivworkshop.ddnsfree.com/api/v1/shopping-list`,
           description: "development server through tunnel",
         },
       ]
